@@ -8,15 +8,15 @@ package io.muic.ooc.fab;
 import java.util.Iterator;
 import java.util.List;
 
-public class Fox extends Animal {
+public class Tiger extends Animal {
     private int foodLevel;
 
-    public Fox() {
+    public Tiger() {
     }
 
     public void initialize(boolean randomAge, Field field, Location location) {
         super.initialize(randomAge, field, location);
-        this.foodLevel = RANDOM.nextInt(9);
+        this.foodLevel = RANDOM.nextInt(9) + RANDOM.nextInt(10);
     }
 
     protected Location moveToNewLocation() {
@@ -55,6 +55,13 @@ public class Fox extends Animal {
                     this.foodLevel = 9;
                     return where;
                 }
+            } else if (animal instanceof Fox) {
+                Fox fox = (Fox)animal;
+                if (fox.isAlive()) {
+                    fox.setDead();
+                    this.foodLevel = 10;
+                    return where;
+                }
             }
         }
 
@@ -62,18 +69,18 @@ public class Fox extends Animal {
     }
 
     public int getMaxAge() {
-        return 150;
+        return 200;
     }
 
     protected double getBreedingProbability() {
-        return 0.08D;
+        return 0.03D;
     }
 
     protected int getMaxLitterSize() {
-        return 2;
+        return 1;
     }
 
     protected int getBreedingAge() {
-        return 15;
+        return 40;
     }
 }
