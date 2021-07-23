@@ -8,3 +8,5 @@ cli version but i know how to use the desktop ver
 Collabs: Sujinna gift (teaching me about actors)
 
 Tutorial followed: from aj videos and his lectures
+
+This is a repo i clone from aj
